@@ -46,3 +46,15 @@ foreign key (pedido_id) references pedidos(id) on delete cascade,
 foreign key (produto_id) references produtos(id) on delete cascade
 );
 
+
+create index idx_clientes_email on clientes(email);
+
+create index idx_pedidos_data on pedidos(data_pedido);
+
+create index idx_pedidos_cliente on pedidos(cliente_id);
+
+create index idx_produtos_estoque on produtos(estoque);
+
+create index idx_itens_pedido_pedido on itens_pedido(pedido_id);
+
+create index idx_itens_pedido_produto on itens_pedido(produto_id);
