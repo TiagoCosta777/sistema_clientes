@@ -75,7 +75,7 @@ group by NOME
 select 
 pr.nome as PRODUTO
 from produtos pr
-inner join itens_pedido ip on pr.id = ip.produto_id
+left join itens_pedido ip on pr.id = ip.produto_id
 where ip.produto_id is null
 ;
 
