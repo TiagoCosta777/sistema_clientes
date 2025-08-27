@@ -1,43 +1,55 @@
-# 📊 Sistema de Gerenciamento de Clientes - MySQL  
+# 🗃️ Sistema de Gerenciamento de Clientes MySQL
 
-![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow)  
-![MySQL](https://img.shields.io/badge/MySQL-Database-blue)  
-![License](https://img.shields.io/badge/License-MIT-green)  
+![MySQL](https://img.shields.io/badge/MySQL-8.0+-00758F?logo=mysql&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-Repository-181717?logo=github)
+![Status](https://img.shields.io/badge/Status-Concluído-brightgreen)
 
-## 📋 Sobre o Projeto  
-Sistema completo de **banco de dados MySQL** para gerenciamento de clientes, pedidos, produtos e endereços.  
-Inclui **relacionamentos 1:N e N:N**, consultas úteis e base para evoluir em projetos maiores.  
+## 📖 Sobre o Projeto
 
----
+Sistema completo de banco de dados MySQL para gestão de clientes, pedidos, produtos e endereços com relacionamentos bem estruturados. Desenvolvido como projeto inicial para portfólio no GitHub.
 
-## 🚀 Como Usar  
+## 🏗️ Estrutura do Banco de Dados
 
-1. Executar no MySQL Workbench  
-   - Abra `schema.sql` e execute para criar o banco  
-   - Execute `inserts.sql` para popular com dados de exemplo  
-   - Use `queries.sql` para testar consultas prontas  
+### Esquema Relacional
+O sistema possui 5 tabelas inter-relacionadas:
 
-2. Estrutura das Tabelas  
+- **`clientes`** - Cadastro principal de clientes
+- **`enderecos`** - Endereços dos clientes (relacionamento 1:N)
+- **`pedidos`** - Registro de pedidos (relacionamento 1:N com clientes)
+- **`produtos`** - Catálogo de produtos disponíveis
+- **`itens_pedido`** - Itens dos pedidos (relacionamento N:N entre pedidos e produtos)
 
-| Tabela        | Campos principais |
-|---------------|------------------|
-| clientes      | id, nome, email, data_cadastro, telefone |
-| enderecos     | cliente_id, logradouro, cidade, estado, cep |
-| pedidos       | cliente_id, data_pedido, valor_total, status |
-| produtos      | id, nome, preco, estoque |
-| itens_pedido  | pedido_id, produto_id, quantidade |
+### Script `schema.sql`
+Contém a estrutura completa do banco de dados:
+- Criação de todas as tabelas
+- Definição de chaves primárias e estrangeiras
+- Constraints de integridade referencial
+- Tipos de dados apropriados para cada campo
+- Relacionamentos com `ON DELETE CASCADE`
 
----
+### Dados de Exemplo `inserts.sql`
+Inclui dados demonstrativos para teste:
+- 4 clientes com perfis diferentes (gamer, startup, memes, fitness)
+- Endereços correspondentes para cada cliente
+- 5 produtos variados com preços e estoque
+- 4 pedidos com status diferentes
+- Itens de pedido conectando produtos aos pedidos
 
-## 🔎 Consultas Principais  
+### Consultas SQL `queries.sql`
+10 consultas úteis para análise de dados:
+1. Listagem básica de clientes e e-mails
+2. Produtos com estoque acima de 50 unidades
+3. Pedidos com valores totais
+4. Clientes e suas cidades
+5. Pedidos com nomes dos clientes
+6. Produtos comprados em cada pedido
+7. Cliente com pedido mais valioso
+8. Total gasto por cliente
+9. Produtos nunca vendidos
+10. Número de pedidos por status
 
-```sql
--- Clientes com endereços
-SELECT c.nome, c.email, e.cidade, e.estado 
-FROM clientes c 
-JOIN enderecos e ON c.id = e.cliente_id;
+## 🚀 Como Executar
 
--- Pedidos com valor total
-SELECT c.nome, p.data_pedido, p.valor_total 
-FROM pedidos p 
-JOIN clientes c ON p.cliente_id = c.id;
+1. **Clone o repositório:**
+   ```bash
+   git clone https://github.com/TiagoCosta777/sistema_clientes.git
