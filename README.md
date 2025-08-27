@@ -2,7 +2,6 @@
 
 ![MySQL](https://img.shields.io/badge/MySQL-8.0+-00758F?logo=mysql&logoColor=white)
 ![GitHub](https://img.shields.io/badge/GitHub-Repository-181717?logo=github)
-![Status](https://img.shields.io/badge/Status-Concluído-brightgreen)
 
 ## 📖 Sobre o Projeto
 
