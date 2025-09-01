@@ -32,3 +32,9 @@ INSERT INTO itens_pedido (pedido_id, produto_id, preco_unitario) VALUES
 (2, 5, 89.90),   
 (3, 4, 79.90),    
 (4, 3, 150.00);   
+
+INSERT INTO pagamentos (pedido_id, metodo_pagamento, valor_pago, data_pagamento, status) values
+(1, 'pix', 199.90, '2025-05-01 10:30:00', 'aprovado'),
+(2, 'cartao_credito', 4088.90, '2025-05-02 14:45:00', 'processando'),
+(3, 'boleto', 79.90, '2025-05-03 09:15:00', 'pendente'),
+(4, 'cartao_debito', 150.00, '2025-05-04 16:20:00', 'aprovado');

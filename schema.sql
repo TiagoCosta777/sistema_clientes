@@ -55,6 +55,10 @@ status enum('pendente', 'processando', 'aprovado', 'recusado', 'estornado') DEFA
 foreign key (pedido_id) references pedidos(id) on delete cascade
 );
 
+alter table pagamentos add column 
+valor_pago dec(10, 2) not null
+;
+
 create index idx_pagamentos_pedido on pagamentos(pedido_id);
 
 create index idx_pagamentos_data on pagamentos(data_pagamento);
