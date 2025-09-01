@@ -46,6 +46,20 @@ foreign key (pedido_id) references pedidos(id) on delete cascade,
 foreign key (produto_id) references produtos(id) on delete cascade
 );
 
+create table pagamentos (
+id int primary key auto_increment,
+pedido_id int not null,
+metodo_pagamento enum('cartao_credito', 'cartao_debito', 'pix', 'boleto') not null,
+data_pagamento datetime not null,
+status enum('pendente', 'processando', 'aprovado', 'recusado', 'estornado') DEFAULT 'pendente',
+foreign key (pedido_id) references pedidos(id) on delete cascade
+);
+
+create index idx_pagamentos_pedido on pagamentos(pedido_id);
+
+create index idx_pagamentos_data on pagamentos(data_pagamento);
+
+create index idx_pagamentos_status on pagamentos(status);
 
 create index idx_clientes_email on clientes(email);
 
@@ -58,3 +72,6 @@ create index idx_produtos_estoque on produtos(estoque);
 create index idx_itens_pedido_pedido on itens_pedido(pedido_id);
 
 create index idx_itens_pedido_produto on itens_pedido(produto_id);
+
+
+
