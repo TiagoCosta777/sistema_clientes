@@ -1,54 +1,70 @@
 # 🗃️ Sistema de Gerenciamento de Clientes MySQL
 
 ![MySQL](https://img.shields.io/badge/MySQL-8.0+-00758F?logo=mysql&logoColor=white)
-![GitHub](https://img.shields.io/badge/GitHub-Repository-181717?logo=github)
+![Status](https://img.shields.io/badge/status-ativo-brightgreen)
 
-## 📖 Sobre o Projeto
+## 📋 Sobre o Projeto
+Projeto de estudo em **MySQL** com foco em **modelagem de banco de dados relacional**, **consultas SQL** e **boas práticas de estruturação**.  
 
-Sistema completo de banco de dados MySQL para gestão de clientes, pedidos, produtos e endereços com relacionamentos bem estruturados. Desenvolvido como projeto inicial para portfólio no GitHub.
+Aqui você encontra um banco completo para gerenciamento de clientes, pedidos, produtos e endereços, incluindo relacionamentos **1:N** e **N:N**.  
 
-## 🏗️ Estrutura do Banco de Dados
+O objetivo é servir como **portfólio** e também como **base prática** para quem está aprendendo SQL.
 
-### Esquema Relacional
-O sistema possui 5 tabelas inter-relacionadas:
+---
 
-- **`clientes`** - Cadastro principal de clientes
-- **`enderecos`** - Endereços dos clientes (relacionamento 1:N)
-- **`pedidos`** - Registro de pedidos (relacionamento 1:N com clientes)
-- **`produtos`** - Catálogo de produtos disponíveis
-- **`itens_pedido`** - Itens dos pedidos (relacionamento N:N entre pedidos e produtos)
+## 🚀 Como Usar
 
-### Script `schema.sql`
-Contém a estrutura completa do banco de dados:
-- Criação de todas as tabelas
-- Definição de chaves primárias e estrangeiras
-- Constraints de integridade referencial
-- Tipos de dados apropriados para cada campo
-- Relacionamentos com `ON DELETE CASCADE`
-
-### Dados de Exemplo `inserts.sql`
-Inclui dados demonstrativos para teste:
-- 4 clientes com perfis diferentes (gamer, startup, memes, fitness)
-- Endereços correspondentes para cada cliente
-- 5 produtos variados com preços e estoque
-- 4 pedidos com status diferentes
-- Itens de pedido conectando produtos aos pedidos
-
-### Consultas SQL `queries.sql`
-10 consultas úteis para análise de dados:
-1. Listagem básica de clientes e e-mails
-2. Produtos com estoque acima de 50 unidades
-3. Pedidos com valores totais
-4. Clientes e suas cidades
-5. Pedidos com nomes dos clientes
-6. Produtos comprados em cada pedido
-7. Cliente com pedido mais valioso
-8. Total gasto por cliente
-9. Produtos nunca vendidos
-10. Número de pedidos por status
-
-## 🚀 Como Executar
-
-1. **Clone o repositório:**
+1. Clone o repositório:
    ```bash
    git clone https://github.com/TiagoCosta777/sistema_clientes.git
+
+    Entre na pasta do projeto:
+
+cd sistema_clientes
+
+Crie o banco no MySQL:
+
+mysql -u root -p < schema.sql
+mysql -u root -p < inserts.sql
+
+Execute consultas de exemplo:
+
+    mysql -u root -p < queries.sql
+
+---
+
+## 🏗️ Estrutura do Projeto
+
+    schema.sql → Criação do banco e tabelas com constraints.
+
+    inserts.sql → Dados de exemplo para popular as tabelas.
+
+    queries.sql → 10 consultas SQL úteis para análise.
+
+    README.md → Documentação do projeto.
+
+---
+
+## 🔎 Exemplos de Consultas
+
+    Listar clientes por e-mail.
+
+    Mostrar produtos com estoque acima de um valor.
+
+    Calcular o total gasto por cliente.
+
+    Retornar os pedidos com mais de 1 item.
+
+(Confira todas no arquivo queries.sql)
+
+---
+
+## 📌 Próximos Passos
+
+Criar script para gerar relatórios automáticos (ex: top clientes).
+
+Adicionar integração com Python para consultas automatizadas.
+
+    Implementar container Docker para rodar facilmente em qualquer máquina.
+
+---
