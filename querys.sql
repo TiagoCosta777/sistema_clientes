@@ -86,3 +86,6 @@ count(*) as TOTAL
 from pedidos
 group by status
 ;
+
+select*
+from categoria;

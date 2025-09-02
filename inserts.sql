@@ -38,3 +38,16 @@ INSERT INTO pagamentos (pedido_id, metodo_pagamento, valor_pago, data_pagamento,
 (2, 'cartao_credito', 4088.90, '2025-05-02 14:45:00', 'processando'),
 (3, 'boleto', 79.90, '2025-05-03 09:15:00', 'pendente'),
 (4, 'cartao_debito', 150.00, '2025-05-04 16:20:00', 'aprovado');
+
+INSERT INTO categoria (nome, descricao, ativo) values
+('Periféricos', 'Mouses, teclados, headsets e outros acessórios para gamers', true),
+('Eletrônicos', 'Notebooks, tablets, smartphones e dispositivos eletrônicos', true),
+('Suplementos', 'Whey protein, vitaminas e produtos fitness', true),
+('Vestuário', 'Camisetas, roupas e acessórios com estampas divertidas', true),
+('Livros', 'Livros sobre negócios, tecnologia e desenvolvimento pessoal', true);
+
+update produtos set categoria_id = 1 where nome = 'Mouse Gamer RGB';
+update produtos set categoria_id = 2 where nome = 'Notebook Ultraleve';
+update produtos set categoria_id = 3 where nome = 'Kit Whey Protein';
+update produtos set categoria_id = 4 where nome = 'Camisa "É só meme, mano"';
+update produtos set categoria_id = 5 where nome = 'Livro: Como Ficar Rico com Startups';

@@ -55,6 +55,18 @@ status enum('pendente', 'processando', 'aprovado', 'recusado', 'estornado') DEFA
 foreign key (pedido_id) references pedidos(id) on delete cascade
 );
 
+
+create table categoria (
+id int primary key auto_increment,
+nome varchar(100) not null,
+descricao text,
+ativo boolean default true
+);
+
+alter table produtos add column categoria_id int;
+alter table produtos add foreign key (categoria_id) references categoria(id);
+
+
 alter table pagamentos add column 
 valor_pago dec(10, 2) not null
 ;
@@ -79,3 +91,5 @@ create index idx_itens_pedido_produto on itens_pedido(produto_id);
 
 
 
+SET SQL_SAFE_UPDATES = 0;
+SET SQL_SAFE_UPDATES = 1;
